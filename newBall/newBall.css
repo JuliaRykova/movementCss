@@ -1,0 +1,56 @@
+/*  отсутствие прокрутки */
+::-webkit-scrollbar {
+    width: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    /* background-image: url(game.gif); */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.ball {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: -25px 0 0 -25px;
+    background: #de0063;
+    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, .5), 15px 15px 2px rgba(0, 0, 0, .05);
+    animation: moveX 6s linear 0s infinite alternate, moveY 3.5s linear 0s infinite alternate;
+}
+
+@keyframes moveX {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 98%;
+    }
+}
+
+@keyframes moveY {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 98%;
+    }
+}
