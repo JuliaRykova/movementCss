@@ -5,7 +5,7 @@ let BOTTOM =
   bottomWall.getBoundingClientRect().height;
 let RIGHT = topWall.getBoundingClientRect().width;
 let LEFT = leftWall.getBoundingClientRect().width;
-// диапозон в котором может перемещаться наш мяч
+
 document.addEventListener("keydown", moveBita);
 
 let vx = 7,
