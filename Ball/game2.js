@@ -1,4 +1,4 @@
-// диапозон в котором может перемещаться наш мяч
+
 let TOP = topWall.getBoundingClientRect().height;
 let BOTTOM =
   leftWall.getBoundingClientRect().height -
@@ -7,7 +7,7 @@ let RIGHT = topWall.getBoundingClientRect().width;
 let LEFT = leftWall.getBoundingClientRect().width;
 // диапозон в котором может перемещаться наш мяч
 document.addEventListener("keydown", moveBita);
-// скорость перемещении биты
+
 let vx = 7,
   vy = 7;
 let ballStyle = ball.getBoundingClientRect();
@@ -71,13 +71,13 @@ function go() {
   }
 }
 const increaseScore = () => {
-  //Get the content of the target element. The current value for score
+
   const score = document.querySelector("#score-counter").innerHTML;
-  //Get the element to increase the value
+
   const scoreHTML = document.querySelector("#score-counter");
-  //Cast the score value to Number type
+
   let count = Number(score);
-  //Set the new score to the target element
+
   scoreHTML.innerHTML = count + 1;
 };
 
