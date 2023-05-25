@@ -1,0 +1,112 @@
+/*  отсутствие прокрутки */
+::-webkit-scrollbar {
+    width: 0;
+}
+
+html {
+    background-image: url(фон2.jpeg);
+}
+
+.object {
+    position: absolute;
+    transition: all 2s ease;
+    /* -webkit-transition: all 2s ease-in-out;s */
+}
+
+/* автобус вправо */
+.vanToRight {
+    top: 80%;
+    left: 1%;
+}
+
+#axis:hover .move-right {
+    transform: translate(1000px, 0);
+    /* -webkit-transform: translate(350px, 0); */
+}
+
+/* автобус влево */
+.vanToLeft {
+    top: 80%;
+    left: 75%;
+}
+
+#axis:hover .move-left {
+    transform: translate(-350px, 0);
+    -webkit-transform: translate(-350px, 0);
+}
+
+/* ракета */
+.rocket {
+    top: 43%;
+    left: 44%;
+}
+
+#axis:hover .move-up {
+    transform: translate(0, -350px);
+    -webkit-transform: translate(0, -350px);
+}
+
+/* монета */
+.coin {
+    top: 43%;
+    left: 4%;
+}
+
+#axis:hover .move-down {
+    transform: translate(0, 350px);
+    -webkit-transform: translate(0, 350px);
+}
+
+/* самолетик */
+.plane {
+    top: 57%;
+    left: 14%;
+}
+
+#axis:hover .move-ne {
+    transform: translate(350px, -350px);
+}
+
+/* карандаш по часовой */
+.pencilOne {
+    top: 5%;
+    left: 85%;
+}
+
+#axis:hover .rotate360cw {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
+
+/* карандаш против часовой */
+.pencil {
+    top: 5%;
+    left: 8%;
+}
+
+#axis:hover .rotate360ccw {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+}
+
+/* машина */
+.car {
+    top: 45%;
+    left: 80%;
+}
+
+#axis:hover .larger {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+}
+
+/* бумеранг */
+.boomerang {
+    top: 55%;
+    right: 32%;
+}
+
+#axis:hover .multiple-move {
+    transform: translate(-350px, -350px) rotate(360deg);
+    -webkit-transform: translate(-350px, -350px) rotate(360deg);
+}
