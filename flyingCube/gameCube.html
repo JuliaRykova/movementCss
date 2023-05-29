@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+
+            /*  отсутствие прокрутки */
+            overflow: hidden;
+        }
+
+
+
+        #leftWall,
+        #topWall,
+        #bottomWall {
+            position: absolute;
+            left: 0;
+            background: #3d4eba;
+        }
+
+        #topWall,
+        #bottomWall {
+            width: 100%;
+            height: 10px;
+        }
+
+        #leftWall {
+            top: 0;
+            width: 10px;
+            height: 100%;
+        }
+
+        #topWall {
+            top: 0;
+        }
+
+        #bottomWall {
+            bottom: 0;
+        }
+
+        #ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(127, 249, 4);
+        }
+
+        #bita {
+            position: absolute;
+            left: 100%;
+            top: 150px;
+            background: #3d4eba;
+            width: 20px;
+            height: 200px;
+            margin: -25px 0 0 -25px;
+
+        }
+
+        #alertButton {
+            z-index: 1;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #e6e6e6;
+            background-color: rgb(249, 4, 192);
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            background: #05ade5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #myVideo {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+
+        <video autoplay muted loop id="myVideo">
+            <source src="аниме.mp4" type="video/mp4">
+        </video>
+        <button id="alertButton" onclick="toggleMute()">МУЗЫЧКУ В СТУДИЮ</button>
+        <div id="leftWall"></div>
+        <div id="topWall"></div>
+        <div id="bottomWall"></div>
+
+        <div id="bita"></div>
+        <div id="ball"></div>
+    </section>
+    <script>
+        function toggleMute() {
+            var myVideo = document.getElementById("myVideo");
+            myVideo.muted = !myVideo.muted;
+        }
+        var object = document.getElementById("ball");
+        var x = 0;
+        var y = 0;
+        var speedX = 5;
+        var speedY = 5;
+        let bStyle = bita.getBoundingClientRect();
+        let WBITA = bStyle.width;
+        let HBITA = bStyle.height;
+        let posBitaY = bStyle.top;
+        let vBita = 10;
+        let TOP = topWall.getBoundingClientRect().height;
+
+        function ball() {
+            x += speedX;
+            y += speedY;
+            object.style.transform = "translate(" + x + "px," + y + "px)";
+
+            var maxX = window.innerWidth - object.offsetWidth;
+            var maxY = window.innerHeight - object.offsetHeight;
+
+            if (x < 0 || x > maxX) {
+                speedX = -speedX;
+            }
+
+            if (y < 0 || y > maxY) {
+                speedY = -speedY;
+            }
+
+            requestAnimationFrame(ball);
+        }
+        ball();
+    </script>
+</body>
+
+</html>
