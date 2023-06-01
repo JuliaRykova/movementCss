@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        #ballLeft {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            margin: -25px 0 0 -25px;
+            background: #5a1b37;
+            box-shadow: inset -5px -5px 5px rgba(0, 0, 0, .5), 15px 15px 2px rgba(0, 0, 0, .05);
+            animation: moveX 6s linear 0s infinite alternate, moveY 3.5s linear 0s infinite alternate;
+        }
+
+        #ballTransform {
+            position: absolute;
+            left: 20px;
+            top: 300px;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            margin: -25px 0 0 -25px;
+            background: #700e3a;
+            box-shadow: inset -5px -5px 5px rgba(0, 0, 0, .5), 15px 15px 2px rgba(0, 0, 0, .05);
+            animation: moveX 6s linear 0s infinite alternate, moveY 3.5s linear 0s infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ballLeft"></div>
+    <div id="ballTransform"></div>
+    <script>
+        var obj = document.getElementById('ballLeft');
+        obj.style.left = '0px';
+
+        function moveObject1() {
+            var obj = document.getElementById('ballLeft');
+            var currentLeft = parseInt(obj.style.left, 10);
+            obj.style.left = (currentLeft + 10) + 'px';
+        }
+        setInterval(moveObject1, 100);
+
+        var interval = setInterval(moveObject1, 100);
+        clearInterval(interval);
+
+
+
+        let object = document.getElementById("ballTransform");
+        let x = 0;
+        let speedX = 15;
+
+        function moveObject() {
+            x += speedX;
+            object.style.transform = "translate(" + x + "px)";
+
+            var maxX = window.innerWidth - object.offsetWidth;
+            if (x < 0 || x > maxX) {
+                speedX = -speedX;
+            }
+
+            requestAnimationFrame(moveObject);
+        }
+        moveObject();
+    </script>
+</body>
+
+</html>
