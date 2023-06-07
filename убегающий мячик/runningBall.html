@@ -39,21 +39,18 @@
         </div>
     </div>
     <script>
-        let elemLeft, elemTop, maxElemLeft, maxElemTop, elem;
+        let maxElemLeft;
+        let maxElemTop;
 
-        elem = document.getElementById('ballShell');
 
-        maxElemLeft = document.documentElement.clientWidth - elem.offsetWidth;
-        maxElemTop = document.documentElement.clientHeight - elem.offsetHeight;
+        maxElemLeft = document.documentElement.clientWidth - ballShell.offsetWidth;
+        maxElemTop = document.documentElement.clientHeight - ballShell.offsetHeight;
 
-        elem.onmousemove = handler;
+        ballShell.onmousemove = handler;
 
         function handler() {
-            elemLeft = Math.random() * maxElemLeft;
-            elem.style.left = elemLeft + 'px';
-            elemTop = Math.random() * maxElemTop;
-            elem.style.top = elemTop + 'px';
-            console.log(elemLeft + ' - ' + elemTop);
+            ballShell.style.left = (Math.random() * maxElemLeft) + 'px';
+            ballShell.style.top = (Math.random() * maxElemTop) + 'px';
         }
     </script>
 </body>
