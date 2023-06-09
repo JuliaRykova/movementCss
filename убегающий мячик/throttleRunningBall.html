@@ -47,7 +47,7 @@
 
                     return;
                 }
-                func.apply(this, arguments);
+                func.apply();
                 isThrottled = true;
                 setTimeout(function () {
                     isThrottled = false;
