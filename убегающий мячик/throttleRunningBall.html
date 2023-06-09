@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ball {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 55px;
+            height: 55px;
+            background-color: rgb(153, 255, 0);
+            z-index: 30;
+            /* поставила по центру второго div */
+            margin: -25px;
+            transition: 1s;
+        }
+
+        #ballShell {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+            z-index: 10;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ballShell" onclick="alert('Клик!')">
+        <div id="ball">
+        </div>
+    </div>
+    <script>
+        function throttle(func, ms) {
+            let isThrottled = false;
+
+            function wrapper() {
+                if (isThrottled) {
+
+                    return;
+                }
+                func.apply(this, arguments);
+                isThrottled = true;
+                setTimeout(function () {
+                    isThrottled = false;
+                }, ms);
+            }
+            return wrapper;
+        }
+
+        let maxElemLeft;
+        let maxElemTop;
+
+
+        maxElemLeft = document.documentElement.clientWidth - ballShell.offsetWidth;
+        maxElemTop = document.documentElement.clientHeight - ballShell.offsetHeight;
+
+        // function muve() {
+        ballShell.onmousemove = handler;
+
+
+        function handler() {
+            ballShell.style.left = (Math.random() * maxElemLeft) + 'px';
+            ballShell.style.top = (Math.random() * maxElemTop) + 'px';
+            console.log(1)
+        }
+        ballShell.onmousemove = throttle(handler, 1000);
+    </script>
+</body>
+
+</html>
